@@ -1,0 +1,28 @@
+name: End-to-end tests
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Cypress run
+      uses: cypress-io/github-action@v5
+      with:
+        start: npm run test
+    - name: 📊 Step 2 - Collect Allure files and generate allure-report folder
+      run: |
+        allure generate ./allure-results -o allure-report/
+    - name: 🎁 Step 3 - Publishing Allure artifact to GitHub Actions
+      uses: actions/upload-artifact@v2
+      with:
+        name: allure-report
+        path: allure-report
+        
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages  # default: gh-pages
+        publish_dir: allure-report
+        destination_dir: default
