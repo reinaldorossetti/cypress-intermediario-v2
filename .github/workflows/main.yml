@@ -9,7 +9,7 @@ jobs:
     - name: Cypress run
       uses: cypress-io/github-action@v5
       with:
-        start: npm run test
+        start: npm run cy:run
     - name: 📊 Step 2 - Collect Allure files and generate allure-report folder
       run: |
         allure generate ./allure-results -o allure-report/
