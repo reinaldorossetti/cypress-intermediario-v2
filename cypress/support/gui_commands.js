@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker'
+
 Cypress.Commands.add('login', (
     user = Cypress.env('user_name'),
     password = Cypress.env('user_password'),
@@ -8,6 +10,7 @@ Cypress.Commands.add('login', (
   
       cy.get("[data-qa-selector='login_field']").type(user)
       cy.get("[data-qa-selector='password_field']").type(password, { log: false })
+      cy.screenshot(`sign_in_data-${faker.datatype.uuid()}`)
       cy.get("[data-qa-selector='sign_in_button']").click()
     }
   
