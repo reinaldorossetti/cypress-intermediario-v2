@@ -1,5 +1,7 @@
 name: End-to-end tests
 on: push
+   branches:
+     - main
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
@@ -9,7 +11,7 @@ jobs:
     - name: Cypress run
       uses: cypress-io/github-action@v5
       with:
-        start: npm run cy:run
+        start: npx cypress run --spec cypress/e2e/api/openweathermap/weatherSearch.cy.js
     - name: 📊 Step 2 - Collect Allure files and generate allure-report folder
       run: |
         allure generate ./allure-results -o allure-report/

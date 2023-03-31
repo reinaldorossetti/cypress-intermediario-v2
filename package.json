@@ -5,7 +5,7 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy:run": "npx cypress run --env allure=true",
-    "al:generate": "allure generate allure-result",
+    "al:generate": "allure generate allure-report",
     "al:open": "allure open allure-report",
     "test": "npm-run-all cy:run al:generate al:open"
   },
