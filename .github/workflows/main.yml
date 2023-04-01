@@ -39,4 +39,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages  # default: gh-pages
         publish_dir: allure-report
-        destination_dir: default
+        destination_dir: allure-report
