@@ -98,8 +98,8 @@ describe('Checking cities in circle', () => {
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
       expect(response.status).to.equal(200)
-      expect(response.body.coord.lon).to.equal("-46.6361")
-      expect(response.body.coord.lat).to.equal("-23.5475 ")
+      expect(response.body.coord.lon).to.equal("--46.6361")
+      expect(response.body.coord.lat).to.equal("--23.5475 ")
     })
   })
 
@@ -132,7 +132,7 @@ describe('Checking Call back function', () => {
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
       expect(response.status).to.equal(200)
-      expect(response.body.name).to.equal("São Paulo")
+      expect(response.body).to.contain("São Paulo")
     })
   })
 
