@@ -29,6 +29,37 @@ Durante o curso de testes automatizados com Cypress (intermediário) você vai a
 
 Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
 
+## Adicionando Por Reinaldo o Allure Plugin e Execução via Esteira pelo Git Actions:
+using npm:
+```
+npm i -D @shelex/cypress-allure-plugin
+```
+To enable Allure results writing just pass environment variable allure=true, example:
+```
+npx cypress run --env allure=true
+```
+https://www.npmjs.com/package/@shelex/cypress-allure-plugin
+
+Na esteira adicionei o cypress-io/github-action@v5, passando uma spec e a variável do allure.
+
+```
+name: Cypress tests
+on: push
+jobs:
+  cypress-run:
+    name: Cypress run
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+            spec: cypress/e2e/api/openweathermap/*.cy.js
+            env: allure=true
+````
+
 ___
 
 Este é mais um curso da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).
