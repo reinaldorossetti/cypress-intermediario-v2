@@ -204,3 +204,20 @@ describe('Checking Units of measurement - For temperature in Kelvin use units=st
   })
 
 })
+
+describe('Search weather data by city name with invalid api key', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?q=São+Paulo&units=standard&appid=e2',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(200)
+      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.name).to.equal("São Paulo")
+    })
+  })
+
+})
