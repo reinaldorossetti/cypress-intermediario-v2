@@ -11,17 +11,23 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: mostra as pastas
-      run: ls -la
-    - name: Cypress run
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Step 1 Install dependencies
+      run: |
+        npm install -g allure-commandline --save-dev
+    - name: Step 2 Cypress run
       uses: cypress-io/github-action@v5
       with:
         spec: cypress/e2e/api/openweathermap/*.cy.js
         env: allure=true
-    - name: 📊 Step 2 - Collect Allure files and generate allure-report folder
+    - name: mostra as pastas
+      run: ls -la
+    - name:  Step 3 - Collect Allure files and generate allure-report folder
       run: |
         allure generate ./allure-results -o allure-report/
-    - name: 🎁 Step 3 - Publishing Allure artifact to GitHub Actions
+    - name: 🎁 Step 4 - Publishing Allure artifact to GitHub Actions
       uses: actions/upload-artifact@v2
       with:
         name: allure-report
