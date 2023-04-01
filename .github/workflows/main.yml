@@ -19,9 +19,11 @@ jobs:
         npm install -g allure-commandline --save-dev
     - name: Step 2 Cypress run
       uses: cypress-io/github-action@v5
+      if: always()
+      continue-on-error: true
       with:
         spec: cypress/e2e/api/openweathermap/*.cy.js
-        env: allure=true
+        env:  allure=true
     - name: mostra as pastas
       run: ls -la
     - name:  Step 3 - Collect Allure files and generate allure-report folder
