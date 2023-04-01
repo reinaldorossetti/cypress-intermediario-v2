@@ -36,7 +36,7 @@ npm i -D @shelex/cypress-allure-plugin
 ```
 To enable Allure results writing just pass environment variable allure=true, example:
 ```
-npx cypress run --env allure=true
+npx cypress run --env allure=true --spec cypress/e2e/api/openweathermap/weatherSearch.cy.js
 ```
 https://www.npmjs.com/package/@shelex/cypress-allure-plugin
 
@@ -61,5 +61,7 @@ jobs:
 ````
 
 ___
+
+https://github.com/cypress-io/github-action
 
 Este é mais um curso da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).
