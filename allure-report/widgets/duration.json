@@ -1,1 +1,1 @@
-[{"uid":"ccac4bf55799c8d9","name":"Oops...we found an error preparing this test file: cypress/e2e/api/openweathermap/weatherSearch.cy.js","time":{"start":1680358252630,"stop":1680358252630,"duration":0},"status":"broken","severity":"normal"}]
+[{"uid":"e4ab2cdc7bd99b0d","name":"Oops...we found an error preparing this test file: cypress/e2e/api/openweathermap/weatherSearch.cy.js","time":{"start":1680358610048,"stop":1680358610048,"duration":0},"status":"broken","severity":"normal"}]
