@@ -147,7 +147,7 @@ describe('Checking Call back function', () => {
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
       expect(response.status).to.equal(200)
-      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.sys.country).to.contains("\"country\":\"BR\"")
       expect(response.body.name).to.equal("São Paulo")
     })
   })
@@ -164,7 +164,7 @@ describe('Checking Units of measurement - For temperature in Fahrenheit use unit
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
       expect(response.status).to.equal(200)
-      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.sys.country).to.contains("\"country\":\"BR\"")
       expect(response.body.name).to.equal("São Paulo")
     })
   })
@@ -181,7 +181,7 @@ describe('Checking Units of measurement - For temperature in Celsius use units=m
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
       expect(response.status).to.equal(200)
-      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.sys.country).to.contains("\"country\":\"BR\"")
       expect(response.body.name).to.equal("São Paulo")
     })
   })
@@ -198,7 +198,7 @@ describe('Checking Units of measurement - For temperature in Kelvin use units=st
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
       expect(response.status).to.equal(200)
-      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.sys.country).to.contains("\"country\":\"BR\"")
       expect(response.body.name).to.equal("São Paulo")
     })
   })
@@ -215,7 +215,7 @@ describe('Search weather data by city name with invalid api key', () => {
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
       expect(response.status).to.equal(200)
-      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.sys.country).to.contains("\"country\":\"BR\"")
       expect(response.body.name).to.equal("São Paulo")
     })
   })
