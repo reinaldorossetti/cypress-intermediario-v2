@@ -60,6 +60,7 @@ describe('Pesquisa clima por ZipCode Não Encontrado', () => {
   it('successfully', () => {
     cy.request({
       method: 'GET',
+      failOnStatusCode: false,
       url: '/weather?zip=040%2Cus&appid=e2f1d841cc16cff49a0aa18b531d71e0',
       headers: { 'Content-Type': 'application/json' },
     }).then(response => {
