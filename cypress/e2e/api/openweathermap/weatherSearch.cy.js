@@ -88,22 +88,6 @@ describe('Checking cities within a rectangle zone', () => {
 
 })
 
-describe('Checking cities within a rectangle zone', () => {
-
-  it('successfully', () => {
-    cy.request({
-      method: 'GET',
-      failOnStatusCode: false,
-      url: '/weather?bbox=12%2C32%2C15%2C37%2C10&appid=e2f1d841cc16cff49a0aa18b531d71e0',
-      headers: { 'Content-Type': 'application/json' },
-    }).then(response => {
-      expect(response.status).to.equal(404)
-      expect(response.body.message).to.equal("Nothing to geocode")
-    })
-  })
-
-})
-
 describe('Checking cities in circle', () => {
 
   it('successfully', () => {
