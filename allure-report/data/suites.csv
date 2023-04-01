@@ -1,6 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Apr 01 13:45:14 UTC 2023","Sat Apr 01 13:45:14 UTC 2023","132","","Pesquisa clima por ID","","","","successfully",""
-"passed","Sat Apr 01 13:45:14 UTC 2023","Sat Apr 01 13:45:14 UTC 2023","140","","Pesquisa clima por ZipCode Não Encontrado","","","","successfully",""
-"passed","Sat Apr 01 13:45:14 UTC 2023","Sat Apr 01 13:45:14 UTC 2023","429","","Pesquisa clima por cidade","","","","successfully",""
-"passed","Sat Apr 01 13:45:14 UTC 2023","Sat Apr 01 13:45:14 UTC 2023","131","","Pesquisa clima por ZipCode","","","","successfully",""
-"passed","Sat Apr 01 13:45:14 UTC 2023","Sat Apr 01 13:45:14 UTC 2023","128","","Pesquisa clima por longitude e latitude","","","","successfully",""
+"broken","Sat Apr 01 14:10:52 UTC 2023","Sat Apr 01 14:10:52 UTC 2023","0","","cypress/e2e/api/openweathermap/weatherSearch.cy.js","","","","Oops...we found an error preparing this test file: cypress/e2e/api/openweathermap/weatherSearch.cy.js",""
