@@ -136,3 +136,71 @@ describe('Checking multilingual support', () => {
   })
 
 })
+
+describe('Checking Call back function', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?q=São+Paulo&callback=test&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(200)
+      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.name).to.equal("São Paulo")
+    })
+  })
+
+})
+
+describe('Checking Units of measurement - For temperature in Fahrenheit use units=imperial', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?q=São+Paulo&units=imperial&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(200)
+      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.name).to.equal("São Paulo")
+    })
+  })
+
+})
+
+describe('Checking Units of measurement - For temperature in Celsius use units=metric', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?q=São+Paulo&units=metric&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(200)
+      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.name).to.equal("São Paulo")
+    })
+  })
+
+})
+
+describe('Checking Units of measurement - For temperature in Kelvin use units=standard', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?q=São+Paulo&units=standard&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(200)
+      expect(response.body.sys.country).to.equal("{\"type\":2,\"id\":2033898,\"country\":\"BR\",\"sunrise\":1680340471,\"sunset\":1680383169}")
+      expect(response.body.name).to.equal("São Paulo")
+    })
+  })
+
+})
