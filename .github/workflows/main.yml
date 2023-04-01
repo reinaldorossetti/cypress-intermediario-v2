@@ -16,7 +16,8 @@ jobs:
         node-version: '16'
     - name: Step 1 Install dependencies
       run: |
-        npm install -g allure-commandline --save-dev
+        npm install -g allure-commandline --save-dev |
+        npm install
     - name: Step 2 Cypress run
       uses: cypress-io/github-action@v5
       if: always()
@@ -30,7 +31,7 @@ jobs:
       run: |
         allure generate ./allure-results -o allure-report/
     - name: 🎁 Step 4 - Publishing Allure artifact to GitHub Actions
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: allure-report
         path: allure-report
