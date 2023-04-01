@@ -1,4 +1,4 @@
-describe('Pesquisa clima por cidade', () => {
+describe('Checking the weather by city', () => {
 
   it('successfully', () => {
     cy.request({
@@ -13,7 +13,7 @@ describe('Pesquisa clima por cidade', () => {
 })
 
 
-describe('Pesquisa clima por ID', () => {
+describe('Checking the weather by id', () => {
 
   it('successfully', () => {
     cy.request({
@@ -27,7 +27,7 @@ describe('Pesquisa clima por ID', () => {
 
 })
 
-describe('Pesquisa clima por longitude e latitude', () => {
+describe('Checking weather by longitude and latitude', () => {
 
   it('successfully', () => {
     cy.request({
@@ -41,7 +41,7 @@ describe('Pesquisa clima por longitude e latitude', () => {
 
 })
 
-describe('Pesquisa clima por ZipCode', () => {
+describe('Checking weather by zip code', () => {
 
   it('successfully', () => {
     cy.request({
@@ -55,7 +55,7 @@ describe('Pesquisa clima por ZipCode', () => {
 
 })
 
-describe('Pesquisa clima por ZipCode Não Encontrado', () => {
+describe('Checking weather by not found zip code', () => {
 
   it('successfully', () => {
     cy.request({
@@ -66,6 +66,72 @@ describe('Pesquisa clima por ZipCode Não Encontrado', () => {
     }).then(response => {
       expect(response.status).to.equal(404)
       expect(response.body.message).to.equal("city not found")
+    })
+  })
+
+})
+
+
+describe('Checking cities within a rectangle zone', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?bbox=12%2C32%2C15%2C37%2C10&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(404)
+      expect(response.body.message).to.equal("Nothing to geocode")
+    })
+  })
+
+})
+
+describe('Checking cities within a rectangle zone', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?bbox=12%2C32%2C15%2C37%2C10&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(404)
+      expect(response.body.message).to.equal("Nothing to geocode")
+    })
+  })
+
+})
+
+describe('Checking cities in circle', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?lat=-23.5475&lon=-46.6361&cnt=10&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(200)
+      expect(response.body.coord).to.equal("{\"lon\":-46.6361,\"lat\":-23.5475}")
+    })
+  })
+
+})
+
+describe('Checking multilingual support', () => {
+
+  it('successfully', () => {
+    cy.request({
+      method: 'GET',
+      failOnStatusCode: false,
+      url: '/weather?id=3448439&lang=sp&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(response => {
+      expect(response.status).to.equal(200)
+      expect(response.body.sys.country).to.equal("{/"type/":2,/"id/":2033898,/"country/":/"BR/",/"sunrise/":1680340471,/"sunset/":1680383169}/")
+      expect(response.body.name).to.equal("São Paulo")
     })
   })
 
