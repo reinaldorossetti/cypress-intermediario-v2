@@ -15,6 +15,7 @@ jobs:
       uses: cypress-io/github-action@v5
       with:
         start: npx cypress run --spec cypress/e2e/api/openweathermap/weatherSearch.cy.js
+        project: ./cypress/e2e/api/openweathermap/
     - name: 📊 Step 2 - Collect Allure files and generate allure-report folder
       run: |
         allure generate ./allure-results -o allure-report/
