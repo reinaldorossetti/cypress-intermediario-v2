@@ -1,13 +1,18 @@
+import promisify from 'cypress-promise'
+
 describe('Checking the weather by city', () => {
 
-  it('successfully', () => {
-    cy.request({
-      method: 'GET',
-      url: '/weather?q=São+Paulo&appid=e2f1d841cc16cff49a0aa18b531d71e0',
-      headers: { 'Content-Type': 'application/json' },
-    }).then(response => {
-      expect(response.status).to.equal(200)
-    })
+  it('successfully', async () => {
+    
+    const response = await promisify(
+      cy.request({
+        method: 'GET',
+        url: '/weather?q=São+Paulo&appid=e2f1d841cc16cff49a0aa18b531d71e0',
+        headers: { 'Content-Type': 'application/json' },
+      })
+    .as('response'))
+    console.log(response)
+    expect(response.status).to.equal(200)
   })
 
 })
@@ -203,5 +208,8 @@ describe('Search weather data by city name with invalid api key', () => {
       expect(response.body.name).to.equal("São Paulo")
     })
   })
+
+
+
 
 })

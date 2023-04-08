@@ -5,7 +5,7 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy:run": "npx cypress run --env allure=true",
-    "al:generate": "allure generate allure-report",
+    "report": "allure generate allure-report --clean && allure open allure-report",
     "al:open": "allure open allure-report"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "cypress": "^12.0.2",
     "cypress-mochawesome-reporter": "^3.3.0",
     "cypress-plugin-api": "^2.6.1",
+    "cypress-promise": "^1.1.0",
     "mochawesome": "^7.1.3",
     "npm-run-all": "^4.1.5"
   },
