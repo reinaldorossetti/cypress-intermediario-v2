@@ -10,5 +10,6 @@ module.exports = defineConfig({
   },
   fixturesFolder: false,
   video: false,
+  screenshotOnRunFailure: false,
   },
 });

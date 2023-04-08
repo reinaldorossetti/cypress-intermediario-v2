@@ -1,4 +1,5 @@
 import promisify from 'cypress-promise'
+const expect = require('chai').expect
 
 describe('Checking the weather by city', () => {
 
