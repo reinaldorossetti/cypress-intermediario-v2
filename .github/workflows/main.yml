@@ -25,6 +25,7 @@ jobs:
       with:
         spec: cypress/e2e/api/openweathermap/*.cy.js
         env:  allure=true
+        parallel: true
     - name: mostra as pastas
       run: ls -la
     - name:  Step 3 - Collect Allure files and generate allure-report folder
