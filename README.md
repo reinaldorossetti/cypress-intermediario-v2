@@ -34,6 +34,11 @@ using npm:
 ```
 npm i -D @shelex/cypress-allure-plugin
 ```
+Para Rodar os Testes com cobertura de código:
+```
+nyc --reporter=lcov --reporter=text npx cypress run
+```
+
 To enable Allure results writing just pass environment variable allure=true, example:
 ```
 npx cypress run --env allure=true --spec cypress/e2e/api/openweathermap/weatherSearch.cy.js

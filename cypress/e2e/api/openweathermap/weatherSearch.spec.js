@@ -21,7 +21,7 @@ describe('Checking the weather by city', () => {
 
 describe('Checking the weather by id', () => {
 
-  it('successfully', () => {
+  it('Checking the weather by id', () => {
     cy.request({
       method: 'GET',
       url: '/weather?id=3448439&appid=e2f1d841cc16cff49a0aa18b531d71e0',
