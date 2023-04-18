@@ -33,7 +33,6 @@
   },
   "homepage": "https://github.com/wlsf82/cypress-intermediario-v2#readme",
   "devDependencies": {
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@cypress/code-coverage": "^3.10.4",
     "@faker-js/faker": "^7.6.0",
     "@shelex/cypress-allure-plugin": "^2.37.0",
